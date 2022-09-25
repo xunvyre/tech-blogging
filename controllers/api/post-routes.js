@@ -6,7 +6,7 @@ router.get('/', (req, res) =>
     Post.findAll
     ({
         attributes: ['id', 'user_id', 'title', 'post_text', 'updated_at'],
-        order: [['updated_at', 'DESC']],
+        order: [['created_at', 'DESC']],
         include:
         [
             {
