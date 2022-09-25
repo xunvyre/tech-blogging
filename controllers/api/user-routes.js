@@ -8,12 +8,12 @@ router.get('/', (req, res) =>
     {
         attributes: { exclude: ['password'] }
     })
-        .then(dbUserData => res.json(dbUserData))
-        .catch(err =>
-            {
-                console.log(err);
-                res.status(500).json(err);
-            });
+    .then(dbUserData => res.json(dbUserData))
+    .catch(err =>
+    {
+        console.log(err);
+        res.status(500).json(err);
+    });
 });
 
 router.get('/:id', (req, res) =>
@@ -55,11 +55,36 @@ router.post('/', (req, res) =>
     });
 });
 
+router.post('/login', (req, res) =>
+{
+    User.findOne
+    ({
+        where: {email: req.body.email}
+    })
+    .then(dbUserData =>
+    {
+        if (!dbUserData)
+        {
+            res.status(400).json({message: `No user found with that email.`});
+            return;
+        }
+
+        const validPW = dbUserData.checkPassword(req.body.password);
+        if (!validPW)
+        {
+            res.status(400).json({message: `Incorrect password.`});
+            return;
+        }
+        res.json({user: dbUserData, message: `Welcome to Well, Actually!`});
+    });
+});
+
 router.put('/:id', (req, res) =>
 {
     //if req.body had exact key/value pairs, use req.body instead
     User.update(req.body,
     {
+        individualHooks: true,
         where: {id: req.params.id}
     })
     .then(dbUserData =>
