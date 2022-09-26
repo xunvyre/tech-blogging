@@ -1,0 +1,80 @@
+/*------------general styles*/
+*
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+:root
+{
+    --green: rgb(28, 255, 145);
+    --grey: rgb(201, 201, 201);
+    --black: black;
+    --teal: rgb(15, 153, 142);
+}
+
+.btn95
+{
+    padding: 0px 5px;
+    border: 2px outset white;
+    box-shadow: 2px 2px 3px var(--black);
+}
+
+/*-------------body styles*/
+body
+{
+    font-family: 'Noto Sans Mono', monospace;
+    background-color: var(--teal);
+}
+
+/*------------header styles*/
+header
+{
+    background-color: var(--grey);
+    border-bottom: 2px solid rgb(10, 104, 96);
+}
+
+header h1
+{
+    font-family: 'Press Start 2P';
+    color: var(--green);
+    background-color: var(--black);
+}
+
+header div
+{
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 0px 10px;
+}
+
+header div h3
+{
+    font-weight: 700;
+}
+
+header a
+{
+    text-align: left;
+    font-size: 20px;
+    color: var(--black);
+    padding: 0px 5px;
+}
+
+header a:hover
+{
+    color: var(--green);
+    box-shadow: 1px 1px 1px var(--black);
+}
+
+/*------------footer styles*/
+footer
+{
+    background-color: var(--grey);
+    border-top: 2px solid rgb(10, 104, 96);
+}
+
+footer p
+{
+    padding: 0px 10px;
+}
