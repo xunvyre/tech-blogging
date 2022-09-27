@@ -95,18 +95,18 @@ header a:hover
     font-weight: 700;
 }
 
-.box div
+.box div, .post-info
 {
     justify-content: space-between;
     align-items: baseline;
 }
 
-.box h3
+.box h3, .post-info h3
 {
     padding: 3px 0px 0px 20px;
 }
 
-.box h4
+.box h4, .post-info h4
 {
     color: var(--white);
     text-align: end;
@@ -162,6 +162,29 @@ header a:hover
 {
     color: var(--green);
     box-shadow: 1px 1px 1px var(--black);
+}
+
+/*------------create/edit styles*/
+.edit-btns
+{
+    justify-content: space-between;
+    margin: 0px;
+}
+
+/*------------single post styles*/
+.comment
+{
+    border-top: 2px solid rgb(10, 104, 96);
+}
+
+.comment .row
+{
+    justify-content: space-between;
+}
+
+.comment-text
+{
+    color: var(--white);
 }
 
 /*------------footer styles*/
