@@ -1,18 +1,36 @@
 <article class="login-box btn95">
     <div class="row post-info">
-        <h3 class="col">Example Title</h3>
-        <h4 class="col"> by User on 09/26/2022</h4>
+        <h3 class="col">{{post.title}}</h3>
+        <h4 class="col"> by {{post.user.username}} on {{format_date post.created_at}}</h4>
     </div>
     <div class="summary">
-        <p>This is the content of my post.</p>
+        <p>{{post.post_text}}</p>
     </div>
 </article>
+
+{{#if loggedIN}}
+<form class="row login-box comment-box btn95" id="new-comment">
+    <textarea class="col-12 form-control" name="comment-text" placeholder="Leave a Comment:" rows="3"></textarea>
+    <button type="submit" class="col-12 btn95">Post</button>
+</form>
+{{else}}
+<form class="row login-box comment-box btn95">
+    <textarea class="col-12 form-control" placeholder="Log In or Sign Up to Leave a Comment!" rows="2"></textarea>
+</form>
+{{/if}}
+
+{{#each post.comments}}
 <div class="comment container">
     <div class="row">
-        <h4>Username says:</h4>
-        <p>09/26/2022</p>
+        <h4>{{user.username}} says:</h4>
+        <p>{{format_date created_at}}</p>
     </div>
     <p class="comment-text">
-        This is a comment.
+        {{comment_text}}
     </p>
 </div>
+{{/each}}
+
+{{#if loggedIN}}
+<script src="/javascript/comment.js"></script>
+{{/if}}

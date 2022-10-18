@@ -17,12 +17,20 @@ Post.init
         title:
         {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            validate: {len: [2, 40]}
+        },
+        summary:
+        {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {len: [3, 350]}
         },
         post_text:
         {
             type: DataTypes.STRING,
             allowNull: false,
+            validate: {len: [150]}
         },
         user_id:
         {

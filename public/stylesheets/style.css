@@ -187,6 +187,11 @@ header a:hover
     color: var(--white);
 }
 
+.comment-box
+{
+    padding: 10px 15px;
+}
+
 /*------------footer styles*/
 footer
 {

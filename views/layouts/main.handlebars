@@ -21,8 +21,11 @@
                 <nav>
                     <a href="/" class="btn95">Home</a>
                     <a href="/" class="btn95">Dashboard</a>
-                    <a href="/login" class="btn95">Log In</a>
+                    {{#if loggedIN}}
                     <a href="/" class="btn95" id="logout-btn">Log Out</a>
+                    {{else}}
+                    <a href="/login" class="btn95">Log In</a>
+                    {{/if}}
                 </nav>
             </div>
         </div>
@@ -33,6 +36,8 @@
     <footer>
         <p>&copy; Xunvyre 2022</p>
     </footer>
+    {{#if loggedIN}}
     <script src="/javascript/logout.js"></script>
+    {{/if}}
 </body>
 </html>
