@@ -5,7 +5,7 @@ router.get('/', (req, res) =>
 {
     Post.findAll
     ({
-        attributes: ['id', 'user_id', 'title', 'post_text', 'updated_at'],
+        attributes: ['id', 'user_id', 'title', 'summary', 'post_text', 'updated_at'],
         order: [['created_at', 'DESC']],
         include:
         [
@@ -37,7 +37,7 @@ router.get('/:id', (req, res) =>
     Post.findOne
     ({
         where: {id: req.params.id},
-        attributes: ['id', 'title', 'post_text', 'created_at'],
+        attributes: ['id', 'title', 'summary', 'post_text', 'created_at'],
         include:
         [
             {
@@ -76,8 +76,9 @@ router.post('/', (req, res) =>
     Post.create
     ({
         title: req.body.title,
+        summary: req.body.summary,
         post_text: req.body.post_text,
-        user_id: req.body.user_id
+        user_id: req.session.user_id
     })
     .then(dbPostData => res.json(dbPostData))
     .catch(err =>
@@ -91,7 +92,7 @@ router.put('/:id', (req, res) =>
 {
     Post.update
     (
-        { title: req.body.title, post_text: req.body.post_text },
+        { title: req.body.title, summary: req.body.summary, post_text: req.body.post_text },
         { where: {id: req.params.id} }
     )
     .then(dbPostData =>
@@ -110,7 +111,6 @@ router.put('/:id', (req, res) =>
         });
 });
 
-//delete a post
 router.delete('/:id', (req, res) =>
 {
     Post.destroy({where: {id: req.params.id}})

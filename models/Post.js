@@ -29,8 +29,7 @@ Post.init
         post_text:
         {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {len: [150]}
+            allowNull: false
         },
         user_id:
         {

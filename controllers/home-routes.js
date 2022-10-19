@@ -7,7 +7,7 @@ router.get('/', (req, res) =>
     console.log(req.session);
     Post.findAll
     ({
-        attributes: ['id', 'title', 'post_text', 'created_at'],
+        attributes: ['id', 'title', 'summary', 'post_text', 'created_at'],
         include:
         [
             {
@@ -48,7 +48,7 @@ router.get('/posts/:id', (req, res) =>
     Post.findOne
     ({
         where: {id: req.params.id},
-        attributes: ['id', 'title', 'post_text', 'created_at', 'updated_at'],
+        attributes: ['id', 'title', 'summary', 'post_text', 'created_at', 'updated_at'],
         include:
         [
             {
