@@ -21,6 +21,7 @@ async function newPostHandler(event)
     {
         alert(response.statusText);
     }
+
 };
   
-document.querySelector('#create').addEventListener('submit', newPostHandler);
+document.querySelector('#create').addEventListener('click', newPostHandler);

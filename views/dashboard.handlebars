@@ -5,20 +5,25 @@
             <h4 class="col"></h4>
         </div>
         <div class="summary">
-            <p>Click here to make a new post, or browse your other posts below.</p>
+            <p>Click here to make a new post, or view your other posts below.</p>
         </div>
     </article>
 </a>
 {{#each posts as |post|}}
-<a href="/posts/{{post.id}}">
+
     <article class="box btn95">
-        <div class="row">
-            <h3 class="col">{{post.title}}</h3>
-            <h4 class="col"> by {{post.user.username}} on {{format_date post.created_at}}</h4>
-        </div>
-        <div class="summary">
-            <p>{{post.summary}}</p>
+        <a href="/posts/{{post.id}}">
+            <div class="row">
+                <h3 class="col">{{post.title}}</h3>
+                <h4 class="col"> by {{post.user.username}} on {{format_date post.created_at}}</h4>
+            </div>
+            <div class="summary">
+                <p>{{post.summary}}</p>
+            </div>
+        </a>
+        <div class="row edit-btns">
+            <button href="/" class="box btn95 col-5" id="edit">Edit</button>
+            <button class="box btn95 col-5" id="delete">Delete</button>
         </div>
     </article>
-</a>
 {{/each}}
