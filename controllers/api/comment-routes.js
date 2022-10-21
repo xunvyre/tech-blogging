@@ -33,11 +33,7 @@ router.put('/', withAuth, (req, res) =>
 {
     Comment.update
     (
-        {
-            comment_text: req.body.comment_text,
-            user_id: req.session.user_id,
-            post_id: req.body.post_id
-        },
+        {comment_text: req.body.comment_text},
         {where: {id: req.params.id}}
     )
     .then (dbCommentData => res.json(dbCommentData))

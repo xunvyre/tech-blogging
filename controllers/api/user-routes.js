@@ -5,7 +5,7 @@ router.get('/', (req, res) =>
 {
     User.findAll(
     {
-        attributes: { exclude: ['password'] }
+        attributes: {exclude: ['password']}
     })
     .then(dbUserData => res.json(dbUserData))
     .catch(err =>
@@ -25,7 +25,7 @@ router.get('/:id', (req, res) =>
         [
             {
                 model: Post,
-                attributes: ['id', 'title', 'post_text', 'created_at']
+                attributes: ['id', 'title', 'summary', 'post_text', 'created_at']
             },
             {
                 model: Comment,

@@ -19,14 +19,14 @@
 </form>
 {{/if}}
 
-{{#each post.comments}}
+{{#each post.comments as |comment|}}
 <div class="comment container">
     <div class="row">
-        <h4>{{user.username}} says:</h4>
-        <p>{{format_date created_at}}</p>
+        <h4>{{comment.user.username}} says:</h4>
+        <p>{{format_date comment.created_at}}</p>
     </div>
     <p class="comment-text">
-        {{comment_text}}
+        {{comment.comment_text}}
     </p>
 </div>
 {{/each}}
