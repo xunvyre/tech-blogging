@@ -12,7 +12,7 @@ const sqlzStore = require('connect-session-sequelize')(session.Store);
 const sess = 
 {
     secret: process.env.secret,
-    cookie: {},
+    cookie: {maxAge: 15*60*1000},
     resave: false,
     saveUninitialized: true,
     store: new sqlzStore({db: sequelize})
