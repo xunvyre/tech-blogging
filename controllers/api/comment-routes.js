@@ -15,21 +15,51 @@ router.get('/', (req, res) =>
 
 router.post('/', withAuth, (req, res) =>
 {
-    if (req.session)
+    Comment.create
+    ({
+        comment_text: req.body.comment_text,
+        user_id: req.session.user_id,
+        post_id: req.body.post_id
+    })
+    .then (dbCommentData => res.json(dbCommentData))
+    .catch(err =>
     {
-        Comment.create
-        ({
+        console.log(err);
+        res.status(400).json(err);
+    });
+});
+
+router.put('/', withAuth, (req, res) =>
+{
+    Comment.update
+    (
+        {
             comment_text: req.body.comment_text,
             user_id: req.session.user_id,
             post_id: req.body.post_id
-        })
-        .then (dbCommentData => res.json(dbCommentData))
-        .catch(err =>
-        {
-            console.log(err);
-            res.status(400).json(err);
-        });
-    }
+        },
+        {where: {id: req.params.id}}
+    )
+    .then (dbCommentData => res.json(dbCommentData))
+    .catch(err =>
+    {
+        console.log(err);
+        res.status(400).json(err);
+    });
+});
+
+router.delete('/', withAuth, (req, res) =>
+{
+    Comment.destroy
+    ({
+        where: {id: req.params.id}
+    })
+    .then (dbCommentData => res.json(dbCommentData))
+    .catch(err =>
+    {
+        console.log(err);
+        res.status(400).json(err);
+    });
 });
 
 module.exports = router;

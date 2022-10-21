@@ -93,8 +93,8 @@ router.put('/:id', withAuth, (req, res) =>
 {
     Post.update
     (
-        { title: req.body.title, summary: req.body.summary, post_text: req.body.post_text },
-        { where: {id: req.params.id} }
+        {title: req.body.title, summary: req.body.summary, post_text: req.body.post_text},
+        {where: {id: req.params.id}}
     )
     .then(dbPostData =>
         {
@@ -114,6 +114,7 @@ router.put('/:id', withAuth, (req, res) =>
 
 router.delete('/:id', withAuth, (req, res) =>
 {
+    console.log('id', req.params.id);
     Post.destroy({where: {id: req.params.id}})
     .then(dbPostData =>
     {

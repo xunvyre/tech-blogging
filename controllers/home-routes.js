@@ -33,16 +33,6 @@ router.get('/', (req, res) =>
     .catch(err => res.status(500).json(err));
 });
 
-router.get('/login', (req, res) =>
-{
-    if (req.session.loggedIN)
-    {
-        res.redirect('/');
-        return;
-    }
-    res.render('login');
-});
-
 router.get('/posts/:id', (req, res) =>
 {
     Post.findOne
@@ -82,6 +72,16 @@ router.get('/posts/:id', (req, res) =>
         console.log(err);
         res.status(500).json(err);
     });
+});
+
+router.get('/login', (req, res) =>
+{
+    if (req.session.loggedIN)
+    {
+        res.redirect('/');
+        return;
+    }
+    res.render('login');
 });
 
 module.exports = router;
