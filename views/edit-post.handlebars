@@ -1,21 +1,26 @@
-<div id="create" class="login-box btn95">
+<div class="login-box btn95">
     <h2 class="bold">Edit post:</h2>
     <div class="inputs">
-        <input type="text" class="form-control form-control-lg" id="title" placeholder="Enter Title">
-        <textarea class="form-control form-control-lg" id="summary" placeholder="Summarize" rows="2"></textarea>
-        <textarea class="form-control form-control-lg" id="desc" placeholder="Your Post Here" rows="12"></textarea>
+        <input type="text" class="form-control form-control-lg" name="title" value="{{post.title}}">
+        <input type="text" class="form-control form-control-lg" name="summary" value="{{post.summary}}">
+        <textarea class="form-control form-control-lg" name="desc" rows="12">{{post.post_text}}</textarea>
         <div class="row edit-btns">
             <button type="submit" id="confirm" class="btn95 col-5">Confirm Changes</button>
             <button type="submit" id="delete" class="btn95 col-5">Delete Post</button>
         </div>
     </div>
 </div>
+
+{{#each post.comments}}
 <div class="comment container">
     <div class="row">
-        <h4>Username says:</h4>
-        <p>09/26/2022</p>
+        <h4>{{user.username}} says:</h4>
+        <p>{{format_date created_at}}</p>
     </div>
     <p class="comment-text">
-        This is a comment.
+        {{comment_text}}
     </p>
 </div>
+{{/each}}
+
+<script src="/javascript/edit-page.js"></script>

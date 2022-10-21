@@ -21,9 +21,10 @@
                 <p>{{post.summary}}</p>
             </div>
         </a>
-        <div class="row edit-btns">
-            <button href="/" class="box btn95 col-5" id="edit">Edit</button>
-            <button class="box btn95 col-5" id="delete">Delete</button>
+        <div class="login-box edit-btns">
+            <a href="/dashboard/edit/{{post.id}}" class="">
+                <button type="submit" class="btn95 col-12">Edit</button>
+            </a>
         </div>
     </article>
 {{/each}}

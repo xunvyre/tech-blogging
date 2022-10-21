@@ -116,7 +116,7 @@ header a:hover
 .summary
 {
     margin: 0px 7px 10px 7px;
-    padding: 0px 5px;
+    padding: 3px 5px 0px 7px;
     background-color: var(--black);
     color: var(--green);
     border: 2px inset white;

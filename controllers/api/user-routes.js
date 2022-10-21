@@ -91,14 +91,14 @@ router.post('/login', (req, res) =>
     {
         if (!dbUserData)
         {
-            res.status(400).json({message: `No user found with that email.`});
+            res.status(400).send(`No user found under that email.`);
             return;
         }
 
         const validPW = dbUserData.checkPassword(req.body.password);
         if (!validPW)
         {
-            res.status(400).json({message: `Incorrect password.`});
+            res.status(400).send(`Incorrect password.`);
             return;
         }
 
