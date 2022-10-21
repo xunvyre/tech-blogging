@@ -10,7 +10,7 @@ Welcome to Well, Actually: a tech-focused blogging website! Well, Actually is a 
 ## Installation
 You will need to download the dependencies listed in the package.json file through NPM. Type "npm start" in your preferred CLI to launch the product locally. [Or, visit the live site!](https://nameless-chamber-56155.herokuapp.com/)
 ## Usage
-undefined
+![A website with a teal background and grey panels.](./public/assets/Screenshot%202022-10-21%20195717.jpg)
 ## Future Development
 I will be adding comment update functionality in the future, as well as more user control.
 ## Credits
