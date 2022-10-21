@@ -27,5 +27,8 @@
     "express-session": "^1.17.3",
     "mysql2": "^2.3.3",
     "sequelize": "^6.23.1"
+  },
+  "engines": {
+    "node": "v16.16.0"
   }
 }
