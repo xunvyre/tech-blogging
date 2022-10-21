@@ -9,6 +9,7 @@ router.get('/', withAuth, (req, res) =>
     ({
         where: {user_id: req.session.user_id},
         attributes: ['id', 'title', 'summary', 'post_text', 'created_at'],
+        order: [['created_at', 'DESC']],
         include:
         [
             {
@@ -50,6 +51,7 @@ router.get('/edit/:id', withAuth, (req, res) =>
             {
                 model: Comment,
                 attributes: ['id', 'comment_text', 'user_id', 'post_id', 'created_at'],
+                order: [['created_at', 'DESC']],
                 include:
                 {
                     model: User,
